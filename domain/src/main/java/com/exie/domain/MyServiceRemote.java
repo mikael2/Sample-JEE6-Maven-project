@@ -3,6 +3,7 @@ package com.exie.domain;
 import javax.ejb.Remote;
 
 /**
+ * Testing inline edit
  *
  * @author mikael
  */
