@@ -12,4 +12,9 @@ public class MyService implements MyServiceRemote {
     public String getHello(String name) {
         return "Hello " + name;
     }
+
+
+    public long ping() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

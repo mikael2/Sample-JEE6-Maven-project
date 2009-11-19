@@ -1,6 +1,7 @@
 package com.exie.web;
 
 import com.exie.domain.MyServiceRemote;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -11,6 +12,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean(name="MyJSPManagedBean")
 @SessionScoped
 public class MyJSPManagedBean {
+    @EJB MyServiceRemote service;
 
     /** Creates a new instance of MyJSPManagedBean */
     public MyJSPManagedBean() {
@@ -18,6 +20,6 @@ public class MyJSPManagedBean {
     }
 
     public MyServiceRemote getService() {
-        return null;
+        return service;
     }
 }
