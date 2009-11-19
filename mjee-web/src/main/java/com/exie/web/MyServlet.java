@@ -1,12 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.exie.web;
 
+import com.exie.domain.MyServiceRemote;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +16,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name="MyServlet", urlPatterns={"/MyServlet"})
 public class MyServlet extends HttpServlet {
-   
-    /** 
+
+    @EJB
+    MyServiceRemote service;
+
+
+    /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
      * @param response servlet response
@@ -38,6 +39,7 @@ public class MyServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet MyServlet at " + request.getContextPath () + "</h1>");
+            out.println(service.getHello("Mikael"));
             out.println("</body>");
             out.println("</html>");
         } finally { 

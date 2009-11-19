@@ -30,7 +30,9 @@
         <version>2.4</version>
         <configuration>
             <version>6</version>
+            <defaultLibBundleDir>lib</defaultLibBundleDir>
         </configuration>
+
       </plugin>
     </plugins>
     <finalName>mjee-ear</finalName>
