@@ -66,6 +66,6 @@
   </modules>
     <properties>
         <netbeans.version>RELEASE67</netbeans.version>
-        <brandingToken>mjee-rcp</brandingToken>
+        <brandingToken>mjeercp</brandingToken>
     </properties>
 </project>
