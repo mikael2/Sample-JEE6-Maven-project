@@ -16,7 +16,8 @@ public class HessianUserHandler {
         if(service == null) {
             try {
                 HessianCookieProxyFactory factory = new HessianCookieProxyFactory();
-                service = (MyServiceRemote) factory.create(MyServiceRemote.class, "http://");
+                service = (MyServiceRemote) factory.create(MyServiceRemote.class, 
+                        "http://localhost:8080/mjee-war");
             } catch (MalformedURLException ex) {
                 Exceptions.printStackTrace(ex);
             }

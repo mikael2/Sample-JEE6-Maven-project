@@ -22,6 +22,11 @@
             <name>repository hosting netbeans.org api artifacts</name>
             <url>http://bits.netbeans.org/maven2</url>
         </repository>
+        <repository>
+            <id>caucho</id>
+            <name>Caucho</name>
+            <url>http://caucho.com/m2</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -42,13 +47,6 @@
             <type>jar</type>
         </dependency>
     </dependencies>
-    <pluginRepositories>
-      <pluginRepository>
-        <id>caucho</id>
-        <name>Caucho</name>
-        <url>http://caucho.com/m2</url>
-      </pluginRepository>
-    </pluginRepositories>
     <build>
         <plugins>
             <plugin>
@@ -60,7 +58,6 @@
                     <descriptor>src/main/nbm/module.xml</descriptor>
                 </configuration>
             </plugin>
-
             <!-- netbeans modules in 5.5+ are 1.5 compatible -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
