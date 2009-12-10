@@ -26,5 +26,5 @@
         <module>mjee-ejb</module>
         <module>domain</module>
         <module>NetBeansRCP</module>
-    </modules>
+  </modules>
 </project>

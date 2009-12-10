@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-util</artifactId>
-            <version>RELEASE67</version>
+            <version>${netbeans.version}</version>
         </dependency>
         <dependency>
             <groupId>com.caucho</groupId>
