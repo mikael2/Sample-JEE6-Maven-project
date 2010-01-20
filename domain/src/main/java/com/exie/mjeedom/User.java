@@ -12,6 +12,13 @@ public class User implements Serializable {
     protected String name;
     protected Date birthDate;
 
+    public User(String name, Date birthDate) {
+        this.name = name;
+        this.birthDate = birthDate;
+    }
+
+    
+
     /**
      * Get the value of birthDate
      *

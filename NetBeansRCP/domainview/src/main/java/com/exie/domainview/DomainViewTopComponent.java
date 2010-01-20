@@ -1,6 +1,9 @@
 package com.exie.domainview;
 
+import com.exie.mjeedom.User;
+import com.exie.scalalib.UserFactory;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.logging.Logger;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
@@ -34,20 +37,56 @@ final class DomainViewTopComponent extends TopComponent {
     private void initComponents() {
 
         scrollPane = new javax.swing.JScrollPane();
+        nameLabel = new javax.swing.JLabel();
+        createUserButton = new javax.swing.JButton();
+        nameField = new javax.swing.JTextField();
+
+        org.openide.awt.Mnemonics.setLocalizedText(nameLabel, org.openide.util.NbBundle.getMessage(DomainViewTopComponent.class, "DomainViewTopComponent.nameLabel.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(createUserButton, org.openide.util.NbBundle.getMessage(DomainViewTopComponent.class, "DomainViewTopComponent.createUserButton.text")); // NOI18N
+        createUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createUserButtonActionPerformed(evt);
+            }
+        });
+
+        nameField.setText(org.openide.util.NbBundle.getMessage(DomainViewTopComponent.class, "DomainViewTopComponent.nameField.text")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameField, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(createUserButton)
+                .addContainerGap())
             .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameLabel)
+                    .addComponent(createUserButton)
+                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
+        User user = createUser();
+        nameField.setText(user.getName());
+    }//GEN-LAST:event_createUserButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createUserButton;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
     /**
@@ -61,6 +100,12 @@ final class DomainViewTopComponent extends TopComponent {
         }
         return instance;
     }
+
+
+    public User createUser() {
+        return UserFactory.createUser("Scala User", new Date());
+    }
+
 
     /**
      * Obtain the DomainViewTopComponent instance. Never call {@link #getDefault} directly!
