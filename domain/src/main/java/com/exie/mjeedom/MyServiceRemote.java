@@ -1,4 +1,4 @@
-package com.exie.domain;
+package com.exie.mjeedom;
 
 import javax.ejb.Remote;
 

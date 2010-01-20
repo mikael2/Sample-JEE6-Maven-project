@@ -1,6 +1,6 @@
 package com.exie.web;
 
-import com.exie.domain.MyServiceRemote;
+import com.exie.mjeedom.MyServiceRemote;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

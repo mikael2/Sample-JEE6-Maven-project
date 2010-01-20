@@ -1,6 +1,6 @@
 package com.exie.web;
 
-import com.exie.domain.MyServiceRemote;
+import com.exie.mjeedom.MyServiceRemote;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;

@@ -1,6 +1,6 @@
 package com.exie.remotehandler;
 
-import com.exie.domain.MyServiceRemote;
+import com.exie.mjeedom.MyServiceRemote;
 import com.exie.hessian.HessianCookieProxyFactory;
 import java.net.MalformedURLException;
 import org.openide.util.Exceptions;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-import com.exie.domain.User;
+import com.exie.mjeedom.User;
 import com.exie.remotehandler.HessianUserHandler;
 
 /**

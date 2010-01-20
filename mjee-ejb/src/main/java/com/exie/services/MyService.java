@@ -1,7 +1,7 @@
 package com.exie.services;
 
-import com.exie.domain.MyServiceRemote;
-import com.exie.domain.User;
+import com.exie.mjeedom.MyServiceRemote;
+import com.exie.mjeedom.User;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

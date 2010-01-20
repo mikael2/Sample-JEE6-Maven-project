@@ -42,7 +42,7 @@
         </dependency>
         <dependency>
             <groupId>com.exie</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>mjeedom</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
