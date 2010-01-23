@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>com.exie</groupId>
         <artifactId>NetBeansRCP</artifactId>
@@ -49,11 +49,24 @@
             <url>http://download.java.net/maven/2</url>
         </repository>
     </repositories>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>webstart</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>webstart-app</goal>
+                        </goals>
+                        <configuration>
+                            <codebase>${project.build.directory}/webstart</codebase>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -74,7 +87,6 @@
                                     <goal>autoupdate</goal>
                                 </goals>
                                 <configuration>
-                            <!--distBase>central::default::http://repo1.maven.org/maven2</distBase-->
                                 </configuration>
                             </execution>
                             <execution>
@@ -88,6 +100,9 @@
                                 </configuration>
                             </execution>
                         </executions>
+                        <configuration>
+                            
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

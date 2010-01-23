@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-impl</artifactId>
-            <version>2.0.1-b02</version>
+            <version>2.0.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -69,7 +69,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
+                <version>2.1</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
@@ -83,9 +83,37 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>dependency-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <!--
+                             Copy the webstart bundle in as a resource
+                             before packaging starts.
+                        -->
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <artifactItems>
+                        <artifactItem>
+                            <groupId>com.exie</groupId>
+                            <artifactId>application</artifactId>
+                            <version>1.0-SNAPSHOT</version>
+                            <type>zip</type>
+                        </artifactItem>
+                    </artifactItems>
+                    <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
+                </configuration>
+            </plugin>            
         </plugins>
         <finalName>mjee-web</finalName>
     </build>
+
     <profiles>
         <profile>
             <id>endorsed</id>
@@ -99,7 +127,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <version>2.0.2</version>
+                        <version>2.1</version>
                         <configuration>
                             <!-- javaee6 contains upgrades of APIs contained within the JDK itself.
                                  As such these need to be placed on the bootclasspath, rather than classpath of the
@@ -107,7 +135,7 @@
                                  If you don't make use of these new updated API, you can delete the profile.
                                  On non-SUN jdk, you will need to create a similar profile for your jdk, with the similar property as sun.boot.class.path in Sun's JDK.-->
                             <compilerArguments>
-                                <bootclasspath>${settings.localRepository}/javax/javaee-endorsed-api/6.0-SNAPSHOT/javaee-endorsed-api-6.0-SNAPSHOT.jar${path.separator}${sun.boot.class.path}</bootclasspath>
+                                <bootclasspath>${settings.localRepository}/javax/javaee-endorsed-api/6.0/javaee-endorsed-api-6.0.jar${path.separator}${sun.boot.class.path}</bootclasspath>
                             </compilerArguments>
                         </configuration>
                         <dependencies>

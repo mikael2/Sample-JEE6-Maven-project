@@ -40,6 +40,7 @@
                     <extensions>true</extensions>
                     <configuration>
                         <descriptor>src/main/nbm/module.xml</descriptor>
+                        <masterJnlpFile>src/main/jnlp/master.jnlp</masterJnlpFile>
                         <brandingToken>${brandingToken}</brandingToken>
                         <cluster>mjee</cluster>
                     </configuration>
