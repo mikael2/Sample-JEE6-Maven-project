@@ -4,21 +4,13 @@
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
         <script src="http://www.java.com/js/deployJava.js"></script>
-        <title>Changed Title</title>
+        <title>Netbeans RCP on Java EE 6 with Scala and Flex thrown inn</title>
     </h:head>
     <h:body bgcolor="#FFFFFF">
-        Hello from Facelets 14
+        WebStart Netbeans RCP App:
+
         <script>
-            var attributes = {codebase:'http://java.sun.com/products/plugin/1.5.0/demos/jfc/Java2D',
-                              code:'java2d.Java2DemoApplet.class',
-                              archive:'Java2Demo.jar',
-                              width:710, height:540} ;
-            var parameters = {fontSize:16} ;
-            var version = '1.6' ;
-            deployJava.runApplet(attributes, parameters, version);
-        </script>
-        <script>
-            deployJava.createWebStartLaunchButtonEx("master.jnlp");
+            deployJava.createWebStartLaunchButtonEx("builder/master.jnlp");
         </script>
     </h:body>
 </html>

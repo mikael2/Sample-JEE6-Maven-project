@@ -63,7 +63,8 @@
                             <goal>webstart-app</goal>
                         </goals>
                         <configuration>
-                            <codebase>${project.build.directory}/webstart</codebase>
+                            <masterJnlpFile>src/main/jnlp/master.jnlp</masterJnlpFile>
+                            <processJarVersions>true</processJarVersions>
                         </configuration>
                     </execution>
                 </executions>
@@ -89,19 +90,9 @@
                                 <configuration>
                                 </configuration>
                             </execution>
-                            <execution>
-                                <id>webstart</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>webstart-app</goal>
-                                </goals>
-                                <configuration>
-                                    <codebase>${project.build.directory}/webstart/${brandingToken}</codebase>
-                                </configuration>
-                            </execution>
                         </executions>
                         <configuration>
-                            
+
                         </configuration>
                     </plugin>
                 </plugins>
