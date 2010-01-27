@@ -12,10 +12,19 @@
     <servlet>
         <servlet-name>JnlpDownloadServlet</servlet-name>
         <servlet-class>jnlp.sample.servlet.JnlpDownloadServlet</servlet-class>
+        <init-param>
+            <param-name>
+                logLevel
+            </param-name>
+
+            <param-value>
+                DEBUG
+            </param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>JnlpDownloadServlet</servlet-name>
-        <url-pattern>*.jnlp</url-pattern>
+        <url-pattern>/builder/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>

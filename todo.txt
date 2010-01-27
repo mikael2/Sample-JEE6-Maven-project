@@ -1,0 +1,19 @@
+#1  Flexmodul
+
+#2  Få kopiert artifaktene av flex-modulen over i war-modulen
+
+#3  Skrive en automagisk Hessian deligate-servlet mot ejb’ene 
+
+#4  Enten få konfigurert & lagt inn Blaze eller bytte til Hessian for flex.
+
+#5  Bestemme seg for katalogstruktur for prosjektet. Jeg tror prosjektet vil bli versjonert som en stor klump for å forenkle bygging av release.
+
+#6  Bestemme seg for hvordan man skal versjonere moduler
+
+#7  OSGI’ifiere plugin-modulene våres.
+
+#8  Sette opp TeamCity mot github
+
+#9  Backuprutiner av kildekode
+
+#10 RPC kall fra Netbeans modul over flex

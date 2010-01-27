@@ -64,7 +64,7 @@
                         </goals>
                         <configuration>
                             <masterJnlpFile>src/main/jnlp/master.jnlp</masterJnlpFile>
-                            <processJarVersions>true</processJarVersions>
+                            <processJarVersions>false</processJarVersions>
                         </configuration>
                     </execution>
                 </executions>
