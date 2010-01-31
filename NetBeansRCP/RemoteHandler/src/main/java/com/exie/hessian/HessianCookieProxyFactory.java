@@ -8,14 +8,29 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
+import javax.jnlp.BasicService;
+import javax.jnlp.ServiceManager;
+import javax.jnlp.UnavailableServiceException;
 
-
-
-/**
- *
- * @author mikael
- */
 public class HessianCookieProxyFactory extends HessianProxyFactory {
+
+    String base = "";
+
+    public HessianCookieProxyFactory() throws UnavailableServiceException {
+        BasicService bs = (BasicService) ServiceManager.lookup("javax.jnlp.BasicService");
+        String codeBase = bs.getCodeBase().toExternalForm();
+        if ( !codeBase.endsWith( "/" ) ) {
+            codeBase += "/";
+        }
+
+        int index = codeBase.lastIndexOf("webstart/");
+        base = codeBase.substring(0, index) + "services/hessian/";
+    }
+
+
+    public HessianCookieProxyFactory(String base) {
+        this.base = base;
+    }
 
     public Object create(Class api, String urlName, ClassLoader loader)
             throws MalformedURLException {
@@ -26,6 +41,11 @@ public class HessianCookieProxyFactory extends HessianProxyFactory {
         return Proxy.newProxyInstance(api.getClassLoader(),
                 new Class[]{api, HessianRemoteObject.class}, handler);
     }
+
+    public <T> T create(Class<T> api) throws MalformedURLException {
+        return (T) create(api,base + api.getName(),api.getClassLoader());
+    }
+
 
     private static class HessianCookieProxy extends HessianProxy {
 

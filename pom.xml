@@ -27,6 +27,7 @@
         <module>mjee-web</module>
         <module>mjee-ejb</module>
         <module>NetBeansRCP</module>
+    <module>mvnjee6web</module>
   </modules>
 
   <properties>

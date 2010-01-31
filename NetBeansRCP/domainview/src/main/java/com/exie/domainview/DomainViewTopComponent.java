@@ -1,10 +1,12 @@
 package com.exie.domainview;
 
+import com.exie.mjeedom.ServiceFactory;
 import com.exie.mjeedom.User;
 import com.exie.scalalib.UserFactory;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.logging.Logger;
+import org.openide.util.Lookup;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -40,6 +42,9 @@ final class DomainViewTopComponent extends TopComponent {
         nameLabel = new javax.swing.JLabel();
         createUserButton = new javax.swing.JButton();
         nameField = new javax.swing.JTextField();
+        remoteUserLabel = new javax.swing.JLabel();
+        remoteField = new javax.swing.JTextField();
+        createRemoteButton = new javax.swing.JButton();
 
         org.openide.awt.Mnemonics.setLocalizedText(nameLabel, org.openide.util.NbBundle.getMessage(DomainViewTopComponent.class, "DomainViewTopComponent.nameLabel.text")); // NOI18N
 
@@ -52,29 +57,60 @@ final class DomainViewTopComponent extends TopComponent {
 
         nameField.setText(org.openide.util.NbBundle.getMessage(DomainViewTopComponent.class, "DomainViewTopComponent.nameField.text")); // NOI18N
 
+        org.openide.awt.Mnemonics.setLocalizedText(remoteUserLabel, org.openide.util.NbBundle.getMessage(DomainViewTopComponent.class, "DomainViewTopComponent.remoteUserLabel.text")); // NOI18N
+
+        remoteField.setText(org.openide.util.NbBundle.getMessage(DomainViewTopComponent.class, "DomainViewTopComponent.remoteField.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(createRemoteButton, org.openide.util.NbBundle.getMessage(DomainViewTopComponent.class, "DomainViewTopComponent.createRemoteButton.text_1")); // NOI18N
+        createRemoteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createRemoteButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameField, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(createUserButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(remoteUserLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(remoteField, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(nameLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nameField, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(createUserButton)
+                            .addComponent(createRemoteButton))))
                 .addContainerGap())
-            .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {nameLabel, remoteUserLabel});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(createUserButton)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(remoteUserLabel)
+                    .addComponent(remoteField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createRemoteButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -83,10 +119,22 @@ final class DomainViewTopComponent extends TopComponent {
         nameField.setText(user.getName());
     }//GEN-LAST:event_createUserButtonActionPerformed
 
+    private void createRemoteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createRemoteButtonActionPerformed
+        System.out.println("Looking for ServiceFactory");
+        for (ServiceFactory factory : Lookup.getDefault().lookupAll(ServiceFactory.class)) {
+            System.out.println("Ping: " + factory.createMyServiceRemote().ping());
+            remoteField.setText(factory.createMyServiceRemote().getHello(remoteField.getName()));
+        }
+
+    }//GEN-LAST:event_createRemoteButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton createRemoteButton;
     private javax.swing.JButton createUserButton;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JTextField remoteField;
+    private javax.swing.JLabel remoteUserLabel;
     private javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
     /**

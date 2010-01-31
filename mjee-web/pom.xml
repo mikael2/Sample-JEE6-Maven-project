@@ -33,30 +33,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>javax.faces</groupId>
-            <artifactId>jsf-api</artifactId>
-            <version>2.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.faces</groupId>
-            <artifactId>jsf-impl</artifactId>
-            <version>2.0.2</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-            <version>1.1.2</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
           <groupId>org.codehaus.mojo.webstart</groupId>
           <!--<groupId>com.sun.java.jnlp</groupId>-->
           <artifactId>webstart-jnlp-servlet</artifactId>
@@ -70,6 +46,20 @@
             <version>1.0-SNAPSHOT</version>
             <type>jar</type>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.exie</groupId>
+            <artifactId>application</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>resin-hessian</artifactId>
+            <version>4.0.2</version>
         </dependency>
     </dependencies>
     <build>
@@ -112,7 +102,7 @@
                             <classifier>webstart</classifier>
                         </artifactItem>
                     </artifactItems>
-                    <outputDirectory>${project.build.directory}/${project.build.finalName}/builder</outputDirectory>
+                    <outputDirectory>${project.build.directory}/${project.build.finalName}/webstart</outputDirectory>
                 </configuration>
             </plugin>            
         </plugins>

@@ -31,6 +31,15 @@
 
     <dependencies>
         <dependency>
+            <groupId>jre</groupId>
+            <artifactId>javaws</artifactId>
+            <version>1.6.0</version>
+            <type>jar</type>
+            <scope>system</scope>
+            <systemPath>${java.home}/lib/javaws.jar</systemPath>
+        </dependency>
+
+        <dependency>
             <groupId>org.netbeans.api</groupId>
             <artifactId>org-openide-util</artifactId>
             <version>${netbeans.version}</version>
@@ -64,6 +73,10 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.1</version>
                 <configuration>
+                    <!-- Bug in plugin -->
+                    <compilerArguments>
+                        <sourcepath>${project.basedir}/src/main/java</sourcepath>
+                    </compilerArguments>
                     <source>1.6</source>
                     <target>1.6</target>
                 </configuration>
