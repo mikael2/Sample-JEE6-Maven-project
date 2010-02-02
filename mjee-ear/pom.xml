@@ -13,30 +13,6 @@
     <name>mjee-ear JavaEE6 Assembly</name>
     <url>http://maven.apache.org</url>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.1</version>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ear-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <version>6</version>
-                    <defaultLibBundleDir>lib</defaultLibBundleDir>
-                </configuration>
-            </plugin>
-        </plugins>
-        <finalName>mjee-ear</finalName>
-    </build>
-
     <repositories>
         <repository>
             <id>caucho</id>
@@ -44,6 +20,7 @@
             <url>http://caucho.com/m2</url>
         </repository>
     </repositories>
+
     <dependencies>
         <dependency>
             <groupId>com.exie</groupId>
@@ -64,6 +41,74 @@
             <type>war</type>
         </dependency>
     </dependencies>
+
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven.java.net</id>
+            <name>Java.net Maven2 Repository</name>
+            <!-- <url>http://maven.ocean.net.au/snapshot</url> -->
+            <url>http://download.java.net/maven/2</url>
+            <releases>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <finalName>mjee-ear</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <version>6</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.glassfish.maven.plugin</groupId>
+                <artifactId>maven-glassfish-plugin</artifactId>
+                <version>2.1</version>
+
+                <configuration>
+                    <user>${glassfish.adminUser}</user>
+                    <passwordFile>${glassfish.home}/domains/${glassfish.domain}/master-password</passwordFile>
+                    <glassfishDirectory>${glassfish.home}</glassfishDirectory>
+                    <terse>${glassfish.terse}</terse>
+                    <echo>${glassfish.echo}</echo>
+                    <domain>
+                        <name>${glassfish.domain}</name>
+                        <adminPort>${glassfish.adminPort}</adminPort>
+                        <httpPort>${glassfish.httpPort}</httpPort>
+                        <httpsPort>${glassfish.httpsPort}</httpsPort>
+                    </domain>
+                    <components>
+                        <component>
+                            <name>${project.artifactId}</name>
+                            <artifact>${project.build.directory}/${project.build.finalName}.ear</artifact>
+                        </component>
+                    </components>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <properties>
         <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
     </properties>

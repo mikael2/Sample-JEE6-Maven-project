@@ -17,3 +17,5 @@
 #9  Backuprutiner av kildekode
 
 #10 RPC kall fra Netbeans modul over flex
+
+#11 Maven target for å deploye ear til glassfish

@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <profilesXml xmlns="http://maven.apache.org/PROFILES/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/PROFILES/1.0.0 http://maven.apache.org/xsd/profiles-1.0.0.xsd">
+             xsi:schemaLocation="http://maven.apache.org/PROFILES/1.0.0 http://maven.apache.org/xsd/profiles-1.0.0.xsd">
     <profiles>
+        <profile>
+            <id>glassfishV3</id>
+            <properties>
+                <glassfish.domain>domain1</glassfish.domain>
+                <glassfish.adminUser>admin</glassfish.adminUser>
+                <glassfish.echo>true</glassfish.echo>
+                <glassfish.terse>false</glassfish.terse>
+                <glassfish.debug>false</glassfish.debug>
+                <glassfish.adminPort>4848</glassfish.adminPort>
+                <glassfish.httpPort>8080</glassfish.httpPort>
+                <glassfish.httpsPort>8443</glassfish.httpsPort>
+
+                <database.password>password</database.password>
+            </properties>
+        </profile>
         <profile>
             <id>netbeans-private</id>
             <activation>
