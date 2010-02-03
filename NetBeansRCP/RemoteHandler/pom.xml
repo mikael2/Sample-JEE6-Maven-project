@@ -22,11 +22,6 @@
             <name>repository hosting netbeans.org api artifacts</name>
             <url>http://bits.netbeans.org/maven2</url>
         </repository>
-        <repository>
-            <id>caucho</id>
-            <name>Caucho</name>
-            <url>http://caucho.com/m2</url>
-        </repository>
     </repositories>
 
     <dependencies>
@@ -44,16 +39,17 @@
             <artifactId>org-openide-util</artifactId>
             <version>${netbeans.version}</version>
         </dependency>
+
         <dependency>
-            <groupId>com.caucho</groupId>
-            <artifactId>resin-hessian</artifactId>
-            <version>4.0.2</version>
+            <groupId>com.exie</groupId>
+            <artifactId>external-wrapper</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>com.exie</groupId>
             <artifactId>mjeedom</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
         </dependency>
     </dependencies>
     <build>

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: com/exie/scalalib/Bundle.properties
+OpenIDE-Module-Layer: com/exie/scalalib/layer.xml
+OpenIDE-Module-Public-Packages: com.exie.**

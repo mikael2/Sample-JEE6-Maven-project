@@ -19,9 +19,10 @@ public class MyService implements MyServiceRemote {
     public String getHello(String name) {
         User user = users.get(name);
 
-        if(user != null) {
+        if(user == null) {
             // user = new User(name, new Date());
             user = UserFactory.createUser(name, new Date());
+            users.put(name, user);
         }
 
         return "Hello " + user;

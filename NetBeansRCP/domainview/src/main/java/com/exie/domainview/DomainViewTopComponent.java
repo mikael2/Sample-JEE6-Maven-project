@@ -1,5 +1,6 @@
 package com.exie.domainview;
 
+import com.exie.mjeedom.MyServiceRemote;
 import com.exie.mjeedom.ServiceFactory;
 import com.exie.mjeedom.User;
 import com.exie.scalalib.UserFactory;
@@ -122,8 +123,7 @@ final class DomainViewTopComponent extends TopComponent {
     private void createRemoteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createRemoteButtonActionPerformed
         System.out.println("Looking for ServiceFactory");
         for (ServiceFactory factory : Lookup.getDefault().lookupAll(ServiceFactory.class)) {
-            System.out.println("Ping: " + factory.createMyServiceRemote().ping());
-            remoteField.setText(factory.createMyServiceRemote().getHello(remoteField.getName()));
+            remoteField.setText(factory.create(MyServiceRemote.class).getHello(remoteField.getName()));
         }
 
     }//GEN-LAST:event_createRemoteButtonActionPerformed

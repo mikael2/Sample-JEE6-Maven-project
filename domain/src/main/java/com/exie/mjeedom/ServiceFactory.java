@@ -5,5 +5,5 @@ package com.exie.mjeedom;
  * @author mikael
  */
 public interface ServiceFactory {
-    MyServiceRemote createMyServiceRemote();
+    public <T> T create(Class<T> api);
 }

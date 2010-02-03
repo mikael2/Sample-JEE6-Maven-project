@@ -38,7 +38,7 @@ public class HessianCookieProxyFactory extends HessianProxyFactory {
 
         HessianCookieProxy handler = new HessianCookieProxy(this, url);
 
-        return Proxy.newProxyInstance(api.getClassLoader(),
+        return Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
                 new Class[]{api, HessianRemoteObject.class}, handler);
     }
 

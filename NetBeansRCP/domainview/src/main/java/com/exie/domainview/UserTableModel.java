@@ -1,5 +1,6 @@
 package com.exie.domainview;
 
+import com.exie.mjeedom.MyServiceRemote;
 import com.exie.mjeedom.ServiceFactory;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class UserTableModel extends AbstractTableModel {
     public UserTableModel() {
         System.out.println("Looking for ServiceFactory");
         for (ServiceFactory factory : Lookup.getDefault().lookupAll(ServiceFactory.class)) {
-            System.out.println("Ping: " + factory.createMyServiceRemote().ping());
+            System.out.println("Ping: " + factory.create(MyServiceRemote.class).ping());
         }
     }
 

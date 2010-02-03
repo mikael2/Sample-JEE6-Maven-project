@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+OpenIDE-Module-Localizing-Bundle: com/exie/externalwrapper/Bundle.properties
+OpenIDE-Module-Layer: com/exie/externalwrapper/layer.xml
+OpenIDE-Module-Public-Packages: com.caucho.**,scala.**
