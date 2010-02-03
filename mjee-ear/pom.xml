@@ -47,7 +47,6 @@
         <pluginRepository>
             <id>maven.java.net</id>
             <name>Java.net Maven2 Repository</name>
-            <!-- <url>http://maven.ocean.net.au/snapshot</url> -->
             <url>http://download.java.net/maven/2</url>
             <releases>
                 <enabled>false</enabled>

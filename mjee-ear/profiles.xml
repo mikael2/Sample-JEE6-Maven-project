@@ -7,8 +7,8 @@
             <properties>
                 <glassfish.domain>domain1</glassfish.domain>
                 <glassfish.adminUser>admin</glassfish.adminUser>
-                <glassfish.echo>true</glassfish.echo>
-                <glassfish.terse>false</glassfish.terse>
+                <glassfish.echo>false</glassfish.echo>
+                <glassfish.terse>true</glassfish.terse>
                 <glassfish.debug>false</glassfish.debug>
                 <glassfish.adminPort>4848</glassfish.adminPort>
                 <glassfish.httpPort>8080</glassfish.httpPort>

@@ -2,8 +2,6 @@
 
 #2  Få kopiert artifaktene av flex-modulen over i war-modulen
 
-#3  Skrive en automagisk Hessian deligate-servlet mot ejb’ene 
-
 #4  Enten få konfigurert & lagt inn Blaze eller bytte til Hessian for flex.
 
 #5  Bestemme seg for katalogstruktur for prosjektet. Jeg tror prosjektet vil bli versjonert som en stor klump for å forenkle bygging av release.
@@ -15,7 +13,3 @@
 #8  Sette opp TeamCity mot github
 
 #9  Backuprutiner av kildekode
-
-#10 RPC kall fra Netbeans modul over flex
-
-#11 Maven target for å deploye ear til glassfish
