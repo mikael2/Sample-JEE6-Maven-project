@@ -20,42 +20,6 @@
     <packaging>swf</packaging>
     <name>flex</name>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-
-    <repositories>
-        <repository>
-            <id>sonatype-flexgroup</id>
-            <url>http://repository.sonatype.org/content/groups/flexgroup</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>exie</id>
-            <url>http://pub.exie.com/artifactory/repo</url>
-            <snapshots><enabled>true</enabled></snapshots>
-            <releases><enabled>true</enabled></releases>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>sonatype-flexgroup</id>
-            <url>http://repository.sonatype.org/content/groups/flexgroup</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
-
     <build>
         <sourceDirectory>src/main/flex</sourceDirectory>
 
@@ -75,6 +39,7 @@
                 <version>3.3.0</version>
                 <extensions>true</extensions>
                 <configuration>
+                    <configurationReport>true</configurationReport>
                     <contextRoot>mjee-web</contextRoot>
                     <debug>true</debug>
                     <!--<compiledLocales>&lt;!&ndash; Compiled localization &ndash;&gt;-->
