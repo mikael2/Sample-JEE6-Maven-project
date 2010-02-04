@@ -1,22 +1,89 @@
 <?xml version="1.0"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
     <mx:Script><![CDATA[
+        import hessian.client.HessianService;
+
         import model.MyObject;
 
-        private function send():void {
-            var object:MyObject = new MyObject();
-            object.id = "1";
-            object.value = "Some value";
-            service.saveObject.send(object);
+        import mx.rpc.Responder;
+        import mx.rpc.AsyncToken;
+        import mx.rpc.IResponder;
+        import mx.rpc.events.FaultEvent;
+        import mx.rpc.events.ResultEvent;
+
+        private var service:HessianService = new HessianService("flexservice");
+
+        private function ping():void {
+            var token:AsyncToken = service.ping.send();
+            var responder:IResponder = new mx.rpc.Responder(
+                    function(data:Object) {
+                        var event:ResultEvent = ResultEvent(data);
+                        textArea.text += "\nResult from ping: " + event.result;
+                    },
+                    function(event:FaultEvent) {
+                        textArea.text += "\nping() failed: " + event.fault;
+                    });
+            token.addResponder(responder);
+            //            var object:MyObject = new MyObject();
+            //            object.id = "1";
+            //            object.value = "Some value";
+            //            service.saveObject.send(object);
+        }
+
+        private function getObject():void {
+            var token:AsyncToken = service.getObject.send();
+            var responder:IResponder = new mx.rpc.Responder(
+                    function(data:Object) {
+                        var event:ResultEvent = ResultEvent(data);
+                        textArea.text += "\nResult from getObject: [id=" + event.result.id + ", value=" + event.result.value + "]";
+                    },
+                    function(data:Object) {
+                        var event:FaultEvent = FaultEvent(data);
+                        textArea.text += "\ngetObject() failed: " + event.fault;
+                    });
+            token.addResponder(responder);
+        }
+
+        private function saveObject():void {
+            var token:AsyncToken = service.saveObject.send();
+            var responder:IResponder = new mx.rpc.Responder(
+                    function(data:Object) {
+                        var event:ResultEvent = ResultEvent(data);
+                        textArea.text += "\nResult from saveObject: " + event.result;
+                    },
+                    function(data:Object) {
+                        var event:FaultEvent = FaultEvent(data);
+                        textArea.text += "\nsaveObject() failed: " + event.fault;
+                    });
+            token.addResponder(responder);
+        }
+
+        private function getXml():void {
+            var token:AsyncToken = service.getXml.send();
+            var responder:IResponder = new mx.rpc.Responder(
+                    function(data:Object) {
+                        var event:ResultEvent = ResultEvent(data);
+                        textArea.text += "\nResult from getXml: " + event.result;
+                    },
+                    function(data:Object) {
+                        var event:FaultEvent = FaultEvent(data);
+                        textArea.text += "\ngetXml() failed: " + event.fault;
+                    });
+            token.addResponder(responder);
         }
 ]]></mx:Script>
 
-    <hessian:HessianService xmlns:hessian="hessian.mxml.*" id="service" destination="flexservice"/>
+    <!--<hessian:HessianService xmlns:hessian="hessian.mxml.*" id="service" destination="flexservice" result="serviceResult(event)"/>-->
 
     <mx:Panel title="FlexService Test">
-        <mx:HBox>
-            <mx:Button label="Ping" click="service.ping.send()"/>
-            <mx:Label text="{service.getObject.lastResult}"/>
-        </mx:HBox>
+        <mx:VBox>
+            <mx:HBox>
+                <mx:Button label="ping()" click="ping()"/>
+                <mx:Button label="getObject()" click="getObject()"/>
+                <mx:Button label="saveObject()" click="saveObject()"/>
+                <mx:Button label="getXml()" click="getXml()"/>
+            </mx:HBox>
+            <mx:TextArea editable="false" width="500" height="500" id="textArea"/>
+        </mx:VBox>
     </mx:Panel>
 </mx:Application>
