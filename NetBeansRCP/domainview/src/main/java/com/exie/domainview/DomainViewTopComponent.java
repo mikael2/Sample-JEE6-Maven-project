@@ -121,7 +121,6 @@ final class DomainViewTopComponent extends TopComponent {
     }//GEN-LAST:event_createUserButtonActionPerformed
 
     private void createRemoteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createRemoteButtonActionPerformed
-        System.out.println("Looking for ServiceFactory");
         for (ServiceFactory factory : Lookup.getDefault().lookupAll(ServiceFactory.class)) {
             remoteField.setText(factory.create(MyServiceRemote.class).getHello(remoteField.getName()));
         }
