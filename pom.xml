@@ -28,6 +28,7 @@
         <module>domain</module>
         <module>scala-lib</module>
         <module>external-wrapper</module>
+        <module>flex</module>
   </modules>
 
   <properties>

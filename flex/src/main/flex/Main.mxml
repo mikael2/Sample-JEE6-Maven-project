@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+    <mx:Script><![CDATA[
+        import model.MyObject;
+
+        private function send():void {
+            var object:MyObject = new MyObject();
+            object.id = "1";
+            object.value = "Some value";
+            service.saveObject.send(object);
+        }
+]]></mx:Script>
+
+    <hessian:HessianService xmlns:hessian="hessian.mxml.*" id="service" destination="flexservice"/>
+
+    <mx:Panel title="FlexService Test">
+        <mx:HBox>
+            <mx:Button label="Ping" click="service.ping.send()"/>
+            <mx:Label text="{service.getObject.lastResult}"/>
+        </mx:HBox>
+    </mx:Panel>
+</mx:Application>

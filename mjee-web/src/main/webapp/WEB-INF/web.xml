@@ -17,6 +17,10 @@
             <param-value>DEBUG</param-value>
         </init-param>
     </servlet>
+    <servlet>
+        <servlet-name>FlexServiceServlet</servlet-name>
+        <servlet-class>com.exie.web.FlexServiceServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>JnlpDownloadServlet</servlet-name>
         <url-pattern>/webstart/*</url-pattern>
@@ -24,6 +28,10 @@
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FlexServiceServlet</servlet-name>
+        <url-pattern>/flexservice/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
