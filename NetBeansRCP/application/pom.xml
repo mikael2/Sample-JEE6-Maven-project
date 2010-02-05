@@ -74,8 +74,9 @@
                             <goal>webstart-app</goal>
                         </goals>
                         <configuration>
-                            <masterJnlpFile>src/main/jnlp/master.jnlp</masterJnlpFile>
-                            <processJarVersions>false</processJarVersions>
+                            <keystore>/home/mikael/development/projects/mjee/NetBeansRCP/application/mjee.jks</keystore>
+                            <keystorealias>mjee</keystorealias>
+                            <keystorepassword>mjeemjee</keystorepassword>
                         </configuration>
                     </execution>
                 </executions>
