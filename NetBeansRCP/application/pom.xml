@@ -74,7 +74,7 @@
                             <goal>webstart-app</goal>
                         </goals>
                         <configuration>
-                            <keystore>/home/mikael/development/projects/mjee/NetBeansRCP/application/mjee.jks</keystore>
+                            <keystore>${basedir}/mjee.jks</keystore>
                             <keystorealias>mjee</keystorealias>
                             <keystorepassword>mjeemjee</keystorepassword>
                         </configuration>

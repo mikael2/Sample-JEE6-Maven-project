@@ -17,22 +17,6 @@
     <inceptionYear>2008</inceptionYear>
     <packaging>nbm</packaging>
 
-    <repositories>
-        <repository>
-            <id>scala-tools.org</id>
-            <name>Scala-Tools Maven2 Repository</name>
-            <url>http://scala-tools.org/repo-releases</url>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>scala-tools.org</id>
-            <name>Scala-Tools Maven2 Repository</name>
-            <url>http://scala-tools.org/repo-releases</url>
-        </pluginRepository>
-    </pluginRepositories>
-
     <dependencies>
         <dependency>
             <groupId>com.exie</groupId>
@@ -77,9 +61,6 @@
                 <artifactId>maven-scala-plugin</artifactId>
                 <configuration>
                     <scalaVersion>${scala.version}</scalaVersion>
-                    <!--<args>-->
-                        <!--<arg>-target:jvm-1.6</arg>-->
-                    <!--</args>-->
                 </configuration>
                 <executions>
                     <execution>

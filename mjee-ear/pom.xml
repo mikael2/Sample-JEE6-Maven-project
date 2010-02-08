@@ -35,9 +35,6 @@
     </dependencies>
 
 
-    <pluginRepositories>
-    </pluginRepositories>
-
     <build>
         <finalName>mjee-ear</finalName>
         <plugins>

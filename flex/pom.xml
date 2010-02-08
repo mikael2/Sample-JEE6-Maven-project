@@ -77,12 +77,14 @@
             <classifier>10</classifier>
             <type>swc</type>
         </dependency>
+        <!-- NOTE: Cairngorm must be installed in our Nexus repository. It is not in any public repository.
         <dependency>
             <groupId>com.adobe.flex.framework</groupId>
             <artifactId>cairngorm</artifactId>
             <version>2.2.1</version>
             <type>swc</type>
         </dependency>
+        -->
         <dependency>
             <groupId>com.caucho</groupId>
             <artifactId>hessian-flash</artifactId>

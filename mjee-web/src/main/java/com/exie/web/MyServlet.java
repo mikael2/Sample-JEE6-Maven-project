@@ -45,7 +45,7 @@ public class MyServlet extends HttpServlet {
         } finally { 
             out.close();
         }
-    } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
