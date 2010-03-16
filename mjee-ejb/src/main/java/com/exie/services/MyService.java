@@ -25,7 +25,7 @@ public class MyService implements MyServiceRemote {
             users.put(name, user);
         }
 
-        return "Hello " + user;
+        return "Hello " + user.getName();
     }
 
 

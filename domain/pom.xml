@@ -35,7 +35,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.2-SNAPSHOT</version>
                 <extensions>true</extensions>
                 <configuration>
                     <descriptor>src/main/nbm/module.xml</descriptor>
@@ -44,7 +44,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.1</version>
+                <version>2.2-SNAPSHOT</version>
                 <configuration>
                     <!-- Bug in plugin -->
                     <compilerArguments>

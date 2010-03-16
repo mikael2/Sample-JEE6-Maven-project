@@ -5,6 +5,8 @@ import javax.swing.AbstractAction;
 import org.openide.util.NbBundle;
 import org.openide.windows.TopComponent;
 
+import org.jvnet.flamingo.common.*;
+
 /**
  * Action which shows DomainView component.
  */

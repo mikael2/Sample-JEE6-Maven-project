@@ -9,18 +9,18 @@
     <artifactId>application</artifactId>
     <packaging>nbm-application</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>NetBeansRCP</name>
+    <name>NetBeansRCP Application</name>
     <dependencies>
         <dependency>
             <groupId>org.netbeans.cluster</groupId>
-            <artifactId>platform10</artifactId>
+            <artifactId>${netbeans.platform.version}</artifactId>
             <version>${netbeans.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.officelaf</groupId>
             <artifactId>OfficeLAF</artifactId>
-            <version>0.9-${netbeans.version}</version>
+            <version>0.9.1-${netbeans.version}</version>
             <type>nbm</type>
         </dependency>
         <dependency>

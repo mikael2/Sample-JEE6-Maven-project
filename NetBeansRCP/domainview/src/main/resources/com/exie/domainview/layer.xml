@@ -4,6 +4,7 @@
  
     <folder name="Actions">
         <folder name="Window">
+            <file name="com-exie-domainview-DeleteUserAction.instance"/>
             <file name="com-exie-domainview-DomainViewAction.instance"/>
         </folder>
     </folder>

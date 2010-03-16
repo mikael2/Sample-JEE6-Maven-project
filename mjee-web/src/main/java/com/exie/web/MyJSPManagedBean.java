@@ -16,7 +16,7 @@ public class MyJSPManagedBean {
 
     /** Creates a new instance of MyJSPManagedBean */
     public MyJSPManagedBean() {
-        System.out.println("MyJSPManagedBean");
+        System.out.println("MyJSPManagedBean test");
     }
 
     public MyServiceRemote getService() {
