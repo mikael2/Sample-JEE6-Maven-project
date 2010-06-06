@@ -10,5 +10,6 @@ import javax.ejb.Remote;
 @Remote
 public interface MyServiceRemote {
     String getHello(String name);
+    String getUserHome();
     long ping();
 }

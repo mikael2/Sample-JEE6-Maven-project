@@ -4,6 +4,11 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+    <filter-mapping>
+        <filter-name>JNLPFilter</filter-name>
+        <!--<servlet-name>JnlpDownloadServlet</servlet-name>-->
+        <url-pattern>/webstart/master.jnlp</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -33,12 +38,15 @@
         <servlet-name>FlexServiceServlet</servlet-name>
         <url-pattern>/flexservice/*</url-pattern>
     </servlet-mapping>
+    <filter>
+        <filter-name>JNLPFilter</filter-name>
+        <filter-class>com.exie.web.JNLPFilter</filter-class>
+    </filter>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>

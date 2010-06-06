@@ -6,6 +6,8 @@ import com.exie.scalalib.UserFactory;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
+import java.util.prefs.Preferences;
 import javax.ejb.Stateless;
 
 /**
@@ -31,5 +33,14 @@ public class MyService implements MyServiceRemote {
 
     public long ping() {
         return System.currentTimeMillis();
+    }
+
+    public String getUserHome() {
+        Preferences p = Preferences.userNodeForPackage(MyService.class);
+        String retVal = p.get("uuid", UUID.randomUUID().toString());
+
+        System.out.println("getUserHome: '" + retVal + "'");
+
+        return retVal;
     }
 }
